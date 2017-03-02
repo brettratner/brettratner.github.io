@@ -1,0 +1,79 @@
+body{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+footer {
+    margin: -75px 0;
+}
+
+.profilePic{
+	max-height:200px;
+	max-width:200px;
+	min-height: 100px;
+	min-width: 100px;
+}
+
+.FooterInfo {
+    text-align: center;
+}
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img{
+	border: 1px grey solid;
+}
+
+.paginationButtons{
+	width: 80px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+}
+.button1{
+	padding-left:7px;
+	padding-right:7px;
+}
+
+.button1{
+	padding-left:7px;
+	padding-right:7px;
+}
+
+.col-lg-4 {
+    left: 33.3%;
+}
+.lb-data .lb-close{
+	display:none;
+}
+
+#lightboxOverlay {
+    overflow: hidden;
+}
+.bg-primary {
+background-color:#2B507A;
+
+	}
+.bg-dark {
+background-color:#2B507A
+}
+
+.btn-primary {
+background-color:#0274bc;
+	}
+/***************************** CSS For Mobile *****************************/
+   @media (max-width: 1205px) {
+	   
+.col-lg-4 {
+    left: 0%;
+}
+       
+
+   }
+
+   @media (max-width: 800px) {
+	   
+
+   }
+
+  
+
+
+

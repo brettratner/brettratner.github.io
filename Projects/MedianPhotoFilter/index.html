@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <meta charset="UTF-8"> 
+	   <title>Brett Ratner</title>
+
+	   <link rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css">
+	   <link rel="stylesheet" href="../../css/magnific-popup.css" type="text/css">
+	   <link rel="stylesheet" type="text/css" href="../../css/creative.css">
+       <link rel="stylesheet" type="text/css" href="../../css/1-col-portfolio.css">
+       <link rel="stylesheet" type="text/css" href="../../css/mainStyle.css"> 
+
+        <style>
+            #btn {
+                margin-left: 315px;
+                position: relative;
+                font-size: 30px;
+                border-radius: 12px;
+            }
+            #cvs{
+                max-width: 900px;
+                max-height: 900px;
+            }
+            #range{
+                display:inline-block;
+                position: relative;
+                top: -7px;
+            }
+            #wrapitup{
+                margin-left: -75px;
+            }
+        	.Wapper {
+    			text-align: center;
+			}
+			  input[type="range"] {
+    			display: inline-block;
+    			width: 8%;
+			}
+			#backbutton {
+			    margin-top: 20px;
+			    width: 201px;
+			    margin-right: 100px;
+			}
+			input[type='range']::-webkit-slider-thumb {
+			    -webkit-appearance: none !important;
+			    background:blue;
+			    height:10px;
+			    width:10px;
+			}
+        </style>
+</head>
+
+<body>
+<div class="Wapper">
+    <h1>Meadian Photo Filter</h1>
+	<p><canvas id="cvs" width="1" height="1"> 
+	<img id = "img" src="coins.jpg">
+	</canvas></p>
+
+<div    id = "wrapitup">
+<button id = "btn" class="btn btn-primary" type= "button">Apply Filter</button>
+<input  id = "numOfWorker" type = "range" name = "workers" min = "1" max = "8" oninput = "showValue(this.value)" onchange = "showValue(this.value)">Number of workers
+<input  id = "range" type = "text" value = "" style = "width : 40px">
+</div>
+<a  id="backbutton" class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-chevron-left"></span>Back</a>
+</div>
+</body>
+<script>
+/************************************************************************************
+ * Brett Ratner
+ * Meadian Photo Filter
+ * The purpose of the project is to use the median filter on an image using 
+ * using web workers to make the filter more effeinct. the filter will itterate over
+ * each pixel get the new value for that pixle and then re-draw the new image onto
+ * onto the canvas. 
+*************************************************************************************/
+
+var el  = document.getElementById.bind(document);
+var cvs = el("cvs");
+var ctx = cvs.getContext("2d");
+var webWorkernumber = el("numOfWorker").innerHTML; //gets the nuber of web workers form the slider
+var workArray = []; //creates webworker array
+var image = el("img");
+
+// when the value of the slider changes it updates the number of webworkers being used
+var showValue = function(updatedValue){
+
+	el("numOfWorker").innerHTML = updatedValue;
+	el("range").value           = updatedValue;	
+	webWorkernumber             = updatedValue;
+	height                      = Math.ceil((image.height - 2)/ webWorkernumber);
+}
+
+// the functions will run the median filter with the approprate number of web workers that will get the new image when the button is clicked.
+btn.onclick = function(){
+// if they did not pick the nuber of web workers
+	if(webWorkernumber < 1){
+	alert ("Use the slider to pick the number of web workers you want to use.");
+	return;
+	}
+	//create workers
+	for(var i = 0;i <= webWorkernumber;i++){ 
+  		workArray[i] = new Worker("webworker.js"); 
+  	}
+	filter();
+}
+
+//makes the canvas width and height set to what the image properties are.
+image.onload = function(){
+	cvs.width = image.width; 
+	cvs.height = image.height; 
+	ctx.drawImage(image, 0, 0);
+}
+
+var filter=function(){
+
+var webWorkernumber = el("range").value;
+var height    = Math.ceil( (image.height - 2) / webWorkernumber );
+  
+var y = 1; // y coordinate
+var x = 0; // x coordinate
+
+	//split up image pixels
+	for(var i = 1; i <= webWorkernumber; i++){
+
+		// the imageObject holds the image data, x and y values.
+		var imageObject = {image:ctx.getImageData(x,y,cvs.width,height),x:x,y:y};
+		workArray[i].postMessage(imageObject);
+
+		//worker onmessage
+		workArray[i].onmessage = function(e) 
+		{ 
+			var y     = e.data.y; //gets the y-coordinate
+			var image = e.data.image; //gets the image data
+			ctx.putImageData(image,x,y); //puts the image data back onto the x,y
+			this.terminate(); //terminates web worker
+		}
+	 //y is the height of the image devided by the nuber of webworkers
+	 y = y + height;
+	} 
+}
+</script>
+</html>

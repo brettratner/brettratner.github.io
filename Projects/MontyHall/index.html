@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+	<head>
+    	<meta charset="utf-8"/>
+		<title>Brett Ratner</title>
+		<link rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css">
+    	<link rel="stylesheet" href="../../css/magnific-popup.css" type="text/css">
+    	<link rel="stylesheet" type="text/css" href="../../css/creative.css">
+   	    <link rel="stylesheet" type="text/css" href="../../css/1-col-portfolio.css">
+        <link rel="stylesheet" type="text/css" href="../../css/mainStyle.css"> 
+
+ <style>
+ 	 body{
+        background-image: url("../../img/MonteHallBackground.png");
+        background-repeat: no-repeat;
+        background-size: 400%;
+        z-index: -1;
+        overflow-x: hidden;
+        overflow-y: hidden;
+     }
+     h1{
+        color:black;
+     }
+     
+	#heading {
+        text-align: center;
+        margin-top:10px;
+    }
+
+	#backbutton {
+        position: relative;
+        width: 175px;
+        font-size: 2em;
+        float: left;
+        margin: 25px 0px 0px 25px;
+    }      
+    #simulate{
+       margin-top: 39%;
+       width: 700px;
+       height: 125px;
+       font-size: 6em;
+    }
+
+    #backgroundimg{
+        background-image:url("../../img/MonteHall.png");
+        background-repeat:no-repeat;
+        background-size: 100%;
+        height: 50em;
+    }
+
+    /***************************** CSS For Mobile *****************************/
+   @media (max-width: 1200px) {
+       
+#simulate{
+       margin-top: 42%;
+       width: 800px;
+       height: 150px;
+       font-size: 6em;
+    }  
+
+   }
+
+   @media (max-width: 800px) {
+       
+#simulate{
+       margin-top: 45%;
+       width: 600px;
+       height: 160px;
+       font-size: 6em;
+    }
+   }
+
+ @media (max-width: 600px) {
+       
+#simulate{
+       margin-top: 45%;
+       width: 400px;
+       height: 120px;
+       font-size: 4em;
+    }
+   }
+    @media (max-width: 400px) {
+       
+#simulate{
+       margin-top: 45%;
+       width: 300px;
+       height: 100px;
+       font-size: 3em;
+    }
+   }
+    @media (max-width: 300px) {
+       
+#simulate{
+       margin-top: 45%;
+       width: 150px;
+       height: 40px;
+       font-size: 1.5em;
+    }
+   }
+ </style>
+  
+    </head>
+	<body>
+
+
+	<div id="heading">
+	<h1>Monty Hall Simulator</h1>
+	<div id="backgroundimg">
+
+	<button id="simulate" class="btn btn-primary" onclick="simulate(10000)">Simulate</button>
+	</div>
+	 
+    <script type="text/javascript" src="MontyHall.js"></script>	
+
+            <a id="backbutton" class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-chevron-left"></span>Back</a>
+    </div>
+	</body>
+</html>
