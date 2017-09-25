@@ -111,7 +111,10 @@ aside {
     margin-right: 30%;
     width: 40%;
 }
+.btn-xl{
+  padding:15px 15px;
   }
+}
 @media (min-width: 768px) {
   .navbar-default {
     background-color: transparent;
