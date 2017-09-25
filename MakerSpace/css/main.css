@@ -34,3 +34,39 @@ h1 {
   font-family: Oswald, sans-serif;
   text-align: center;
 }
+
+
+#menu li {
+  float:left;
+  position:relative;
+  line-height: 2.5em;
+  margin-left:-1em;
+  width: 10em;
+}
+#menu li ul {
+  position:absolute;
+  margin-top:-1em;
+  margin-left:.5em;
+  display:none;
+}
+
+#menu a {
+  display:block;
+  text-decoration:none;
+ 
+}
+
+#menu a:hover {
+  color:#5798B4;
+}
+
+
+/* SHOW SUBMENU 1 */
+#menu li:hover ul, #menu li.over ul {
+  display:block;
+}
+#menu li:hover ul ul, #menu li.over ul ul {
+  display:none;
+}
+
+
