@@ -7,9 +7,12 @@
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
 
-     <!-- Plugin CSS -->
+        <!-- Plugin CSS -->
     <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
-
+    <link  href="css/jquery.fancybox.min.css" rel="stylesheet">
+     <!-- Plugin JS -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery.fancybox.min.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="../css/creative.css">
      <link rel="stylesheet" type="text/css" href="css/1-col-portfolio.css">
@@ -21,18 +24,19 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <!--   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button> -->
                 <a class="navbar-brand page-scroll" href="../index.html">Brett Ratner</a>
 
 
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
+            <!--
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul id="nav" class="nav navbar-nav navbar-right">
 <ul id="menu">
@@ -43,20 +47,61 @@
 	</li>
 </ul>
                 </ul>
-            </div>
+            </div>-->
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-  
+    <div class = "title">TCNJ MAKERSPACE</div>
+
 <!--  Video is muted & autoplays, placed after major DOM elements for performance & has an image fallback  -->
-<article>
+
 <video autoplay loop id="video-background" muted plays-inline>
   <source class="mainVideo" src="Videos/MainBackground.mp4" type="video/mp4">
   	<!--<source src="Videos/MakerSpace_Outro.mp4" type="video/mp4"> -->
 </video>
+
+<div class="videoGrid">
+<article class="video">
+  <figure>
+    <a class="fancybox fancybox.iframe" href="https://www.youtube.com/embed/9iwosF276ZU">
+    <img class="videoThumb" src="imgs/Promo-thumbnail.png"></a>
+  </figure>
+  <h2 class="videoTitle">TCNJ MakerSpace Promo</h2>
 </article>
-  <h1>TCNJ MAKERSPACE</h1>
+
+<article class="video">
+  <figure>
+    <a class="fancybox fancybox.iframe" href="https://www.youtube.com/embed/S2NF4rVA1g0">
+    <img class="videoThumb" src="imgs/Lasercutter-thumbnail.png"></a>
+  </figure>
+  <h2 class="videoTitle">Laser Cutter Tutorial</h2>
+</article>
+
+<article class="video">
+  <figure>
+    <a class="fancybox fancybox.iframe" href="https://www.youtube.com/embed/QHu1JPhGfVY">
+    <img class="videoThumb" src="imgs/3Dprinter-thumbnail.png"></a>
+  </figure>
+  <h2 class="videoTitle">3D Printer Tutorial</h2>
+</article>
+
+
+
+<article class="video">
+  <figure>
+    <a class="fancybox fancybox.iframe" href="https://www.youtube.com/embed/RYg6XdD0H4M">
+    <img class="videoThumb" src="imgs/xCarve-thumbnail.png"></a>
+  </figure>
+  <h2 class="videoTitle">X-Carve Tutorial</h2>
+</article>
+
+</div>
+
+
+
+
+
 
 
 </body>
